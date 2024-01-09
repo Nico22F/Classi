@@ -179,6 +179,27 @@ namespace Classi
 
     }
 
+    // classe Banca
+
+    class Banca
+    {
+        private Conto[] array = new Conto[100];
+
+        public Banca() 
+        { 
+            for ( int i = 0; i < array.Length; i++ ) 
+            {
+                array[i] = new Conto();
+            }
+        }
+
+        public void ApriConto(string a)
+        {
+            array[0].Apriconto();
+            array[0].Nome = a;
+        }
+    }
+
     internal class Program
     {
         static void Main(string[] args)
@@ -190,7 +211,7 @@ namespace Classi
             {
                 Console.Clear();
                 Console.WriteLine("1) Apri il conto");
-                Console.WriteLine("2) Azzera il conto");
+                Console.WriteLine("2) Chiudi il conto");
                 Console.WriteLine("3) Deposita sul conto");
                 Console.WriteLine("4) Preleva dal conto");
                 Console.WriteLine("5) Vedi saldo sul conto");
