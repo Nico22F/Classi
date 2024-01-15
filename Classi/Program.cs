@@ -198,6 +198,10 @@ namespace Classi
             array[0].Apriconto();
             array[0].Nome = a;
         }
+
+
+
+
     }
 
     internal class Program
@@ -205,49 +209,74 @@ namespace Classi
         static void Main(string[] args)
         {
             bool uscita = false;
-            Conto conto = new Conto();
-
-            while (uscita == false) 
+            while(uscita == false)
             {
                 Console.Clear();
-                Console.WriteLine("1) Apri il conto");
-                Console.WriteLine("2) Chiudi il conto");
-                Console.WriteLine("3) Deposita sul conto");
-                Console.WriteLine("4) Preleva dal conto");
-                Console.WriteLine("5) Vedi saldo sul conto");
-                Console.WriteLine("6) Visualizza info conto");
-                Console.WriteLine("0) Esci");
+                Console.WriteLine("Benvenuto nell'Intesa San Fabbro");
+                Console.WriteLine("Vuole lavorare su un singolo conto (1) o su più conti? (2) ");
 
-                switch (Console.ReadLine()) 
+
+                switch (Console.ReadLine())
                 {
-                    case "1":
-                        conto.Apriconto();
-                        break;
+                    case "1": // singolo conto
 
-                    case "2":
-                        conto.ChiudiConto();
-                        break;
+                        Conto conto = new Conto();
+                        bool uscita2 = false;
 
-                    case "3":
-                        conto.Deposita();
-                        break;
+                        while (uscita2 == false)
+                        {
+                            Console.Clear();
+                            Console.WriteLine("1) Apri il conto");
+                            Console.WriteLine("2) Azzera il conto");
+                            Console.WriteLine("3) Deposita sul conto");
+                            Console.WriteLine("4) Preleva dal conto");
+                            Console.WriteLine("5) Vedi saldo sul conto");
+                            Console.WriteLine("6) Visualizza info conto");
+                            Console.WriteLine("0) Esci");
 
-                    case "4":
-                        conto.Prelevare();
-                        break;
+                            switch (Console.ReadLine())
+                            {
+                                case "1":
+                                    conto.Apriconto();
+                                    break;
 
-                    case "5":
-                        conto.VisualizzaSaldo();
-                        break;
+                                case "2":
+                                    conto.ChiudiConto();
+                                    break;
 
-                    case "6":
-                        conto.StatoConto();
-                        break;
+                                case "3":
+                                    conto.Deposita();
+                                    break;
 
-                    case "0":
-                        uscita = true;
+                                case "4":
+                                    conto.Prelevare();
+                                    break;
+
+                                case "5":
+                                    conto.VisualizzaSaldo();
+                                    break;
+
+                                case "6":
+                                    conto.StatoConto();
+                                    break;
+
+                                case "0":
+                                    uscita2 = true;
+                                    break;
+                            }
+                        }
+
+                        break;
+                    case "2": // più conti
+                        
+                        break;
+                    default:
+                        Console.Clear();
+                        Console.WriteLine("Input Errato. Reinserire l'input");
+                        Console.ReadLine();
                         break;
                 }
+
             }
         }
     }
