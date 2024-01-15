@@ -199,7 +199,38 @@ namespace Classi
             array[0].Nome = a;
         }
 
+        // fricerca dicotomica del nome
 
+        public bool RicercaDicotomica(string nome, ref int posizione)
+        {
+            int sinistra = 0;
+            int destra = 100;
+
+            while (sinistra <= destra)
+            {
+                int medio = sinistra + (destra - sinistra) / 2;
+
+                // Controlla se l'elemento è presente al centro dell'array
+                if (array[medio].Nome == nome)
+                {
+                    posizione = medio;
+                    return quantita = true;
+                }
+
+                // Se l'elemento è maggiore, ignora la metà sinistra
+                if (string.Compare(p[medio].nome, nome, StringComparison.Ordinal) == -1) // se è -1 allora la prima stringa è più piccolo della seconda
+                {
+                    sinistra = medio + 1;
+                }
+                else // Se l'elemento è minore, ignora la metà destra
+                {
+                    destra = medio - 1;
+                }
+            }
+
+
+            return quantita = false;
+        }
 
 
     }
